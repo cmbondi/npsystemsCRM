@@ -56,6 +56,16 @@ class CRMDatabase:
          self.cur.execute("DELETE FROM clients WHERE id = ?", (client_id, ))
          self.con.commit()
 
-if __name__ == "__main__":
-    DB = CRMDatabase()
-    DB.delete_client(1)
+    def db_close(self):
+         self.con.close()
+
+# if __name__ == "__main__":
+#     DB = CRMDatabase()
+#     DB.add_client("Colin", "Bondi", "NP Systems", "3605129704", "colin@npsystems.com", "Active", "10-23-20", "Colin is cool")
+#     DB.add_client("Kara", "Smith", "Be Here Meow", "5034944514", "kara@beheremeow.com", "Active", "1-15-23", "Kara is a cool cat")
+#     DB.add_client("Lady", "Jasmin", "High Heels Corp", "3605432312", "ladyJ@ladyjasmin.com", "Prospect", "5-15-23", "Lady Jasmin is a Goddess to be worshipped")
+#     DB.add_client("Jean", "Viets", "Finity Inc", "5035551212", "jean@finity.com", "Past", "8-17-19", "Jean was a Lady I worshipped back in the day")
+#     DB.add_client("Marijke", "Samamara", "Gypsy Passions", "3607263777", "madminlady@passion.com", "Past", "5-13-21", "Oh my this is an incredible thing")
+#     result = DB.get_all_clients()
+#     print(result)
+#     DB.db_close()
