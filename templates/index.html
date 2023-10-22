@@ -3,21 +3,11 @@
         <div class="content-div">
             <h1>NP Systems Client List</h1>
             <ul class="list-group main_client_list">
+                {% for client in clients %}
                 <li class="list-group-item">
-                    <span>ID: 001 - Jenkins, Bob - Jenkins Finanical - Status: Active - 10.23.2023</span>
+                    <span>ID: {{client[0]}} - {{client[2]}}, {{client[1]}} - {{client[3]}} - Status: {{client[6]}} - {{client[7]}}</span>
                 </li>
-                <li class="list-group-item">
-                    <span>ID: 001 - Jenkins, Bob - Jenkins Finanical - Status: Active - 10.23.2023</span>
-                </li>
-                <li class="list-group-item">
-                    <span>ID: 001 - Jenkins, Bob - Jenkins Finanical - Status: Active - 10.23.2023</span>
-                </li>
-                <li class="list-group-item">
-                    <span>ID: 001 - Jenkins, Bob - Jenkins Finanical - Status: Active - 10.23.2023</span>
-                </li>
-                <li class="list-group-item">
-                    <span>ID: 001 - Jenkins, Bob - Jenkins Finanical - Status: Active - 10.23.2023</span>
-                </li>
+                {% endfor %}
             </ul>
         </div>
     {% endblock %}
