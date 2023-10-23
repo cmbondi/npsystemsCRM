@@ -15,6 +15,7 @@
 
 .main_client_list span {
     color: blue;
+    margin-right: 50px;
 }
 
 .client_detail {

@@ -1,5 +1,4 @@
-from flask import Flask
-from flask import render_template
+from flask import Flask, render_template, request, redirect
 from classes.db import CRMDatabase
 
 app = Flask(__name__)
@@ -8,26 +7,14 @@ app = Flask(__name__)
 def Main():
     DB = CRMDatabase()
     clients = DB.get_all_clients()
-    # id = clients[0][0]
-    # firstname = clients[0][1]
-    # lastname = clients[0][2]
-    # busname = clients[0][3]
-    # status = clients[0][6]
-    # date = clients[0][7]
-    # return render_template('index.html',
-    #     id=id,
-    #     firstname=firstname, 
-    #     lastname=lastname,
-    #     busname=busname,
-    #     status = status,
-    #     date = date
-    #     )
+    DB.db_close()
     return render_template('index.html', clients=clients)
 
 @app.route('/detail')
 def Detail():
     DB = CRMDatabase()
     client = DB.get_client_byid(1)
+    DB.db_close()
     firstname = client[1]
     lastname = client[2]
     busname = client[3]
@@ -46,9 +33,25 @@ def Detail():
         date=date,
         info=info)
 
-@app.route('/add')
+@app.route('/add', methods=['GET', 'POST'])
 def Add():
-    return render_template('add.html')
+    if request.method == "POST":
+        DB = CRMDatabase()
+        DB.add_client(
+            request.form["firstname"], 
+            request.form["lastname"], 
+            request.form["busname"],
+            request.form["phone"],
+            request.form["email"],
+            request.form["status"],
+            request.form["date"],
+            request.form["info"]
+            )
+        DB.db_close()
+        return redirect('/')
+    else:
+        return render_template('add.html')
+
 
 @app.route('/edit')
 def Edit():
