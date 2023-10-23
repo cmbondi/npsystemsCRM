@@ -13,11 +13,16 @@
     color: blue;
 }
 
-.main_client_list span {
+.main_client_list span a {
     color: blue;
     margin-right: 50px;
+    text-decoration: none;
 }
 
 .client_detail {
     font-size: 20px;
+}
+
+button a {
+    color: white;
 }

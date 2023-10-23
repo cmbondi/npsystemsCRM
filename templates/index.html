@@ -5,8 +5,8 @@
             <ul class="list-group main_client_list">
                 {% for client in clients %}
                 <li class="list-group-item">
-                    <span>ID: {{client[0]}} - {{client[2]}}, {{client[1]}} - {{client[3]}} - Status: {{client[6]}} - {{client[7]}}</span><button class="btn btn-primary">edit</button>
-                    <button class="btn btn-primary">delete</button>
+                    <span><a href="\detail\{{client[0]}}">ID: {{client[0]}} - {{client[2]}}, {{client[1]}} - {{client[3]}} - Status: {{client[6]}} - {{client[7]}}</a><button class="btn btn-primary"><a href="\edit\{{client[0]}}">edit</a></button>
+                    <button class="btn btn-primary">delete</button></span>
                 </li>
                 {% endfor %}
             </ul>

@@ -10,10 +10,10 @@ def Main():
     DB.db_close()
     return render_template('index.html', clients=clients)
 
-@app.route('/detail')
-def Detail():
+@app.route('/detail/<int:id>')
+def Detail(id):
     DB = CRMDatabase()
-    client = DB.get_client_byid(1)
+    client = DB.get_client_byid(id)
     DB.db_close()
     firstname = client[1]
     lastname = client[2]
@@ -53,6 +53,23 @@ def Add():
         return render_template('add.html')
 
 
-@app.route('/edit')
-def Edit():
-    return render_template('edit.html')
+@app.route('/edit/<int:id>', methods=['GET', 'POST'])
+def Edit(id):
+    DB = CRMDatabase()
+    if request.method == "GET":
+        client = DB.get_client_byid(id)
+        return render_template('edit.html', client=client)
+    elif request.method == "POST":
+        DB.edit_client(
+            id,
+            request.form["firstname"], 
+            request.form["lastname"], 
+            request.form["busname"],
+            request.form["phone"],
+            request.form["email"],
+            request.form["status"],
+            request.form["date"],
+            request.form["info"]
+            )
+        DB.db_close()
+        return redirect('/')
