@@ -15,24 +15,15 @@ def Detail(id):
     DB = CRMDatabase()
     client = DB.get_client_byid(id)
     DB.db_close()
-    firstname = client[1]
-    lastname = client[2]
-    busname = client[3]
-    phone = client[4]
-    email = client[5]
-    status = client[6]
-    date = client[7]
-    info = client[8]
-    return render_template('detail.html', 
-        id=id,
-        firstname=firstname, 
-        lastname=lastname,
-        busname=busname,
-        phone=phone,
-        email=email,
-        status=status,
-        date=date,
-        info=info)
+    # firstname = client[1]
+    # lastname = client[2]
+    # busname = client[3]
+    # phone = client[4]
+    # email = client[5]
+    # status = client[6]
+    # date = client[7]
+    # info = client[8]
+    return render_template('detail.html', client=client)
 
 @app.route('/add', methods=['GET', 'POST'])
 def Add():

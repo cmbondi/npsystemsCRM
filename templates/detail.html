@@ -1,51 +1,51 @@
 {% extends "layout.html" %}
     {% block content %}
         <div class="content-div">
-            <h2>Client Info for ID: {{id}}: {{firstname}} {{lastname}}</h2>
+            <h2>Client Info for ID: {{client[0]}}: {{client[1]}} {{client[2]}}</h2>
             <div class="client_detail">
                 <div class="row">
                     <div class="col">
                         <p>
-                            <b>Client:</b> ID: {{id}}: {{firstname}} {{lastname}}
+                            <b>Client:</b> ID: {{client[0]}}: {{client[1]}} {{client[2]}}
                         </p>
                     </div>
                     <div class="col">
                         <p>
-                            <b>Business Name:</b> {{busname}}
+                            <b>Business Name:</b> {{client[3]}}
                         </p>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>
-                                <b>Phone:</b> {{phone}}
-                            </p>
-                        </div>
-                        <div class="col">
-                            <p>
-                                <b>Email:</b> {{email}}
-                            </p>
-                        </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>
+                             <b>Phone:</b> {{client[4]}}
+                        </p>
                     </div>
-                    <div class="row">
-                        <div class="col">
-                            <p>
-                                <b>Date Added:</b> {{date}}
-                            </p>
-                        </div>
-                        <div class="col">
-                            <p>
-                                <b>Status:</b> {{status}}
-                            </p>
-                        </div>
+                    <div class="col">
+                        <p>
+                            <b>Email:</b> {{client[5]}}
+                        </p>
                     </div>
-                    <div class="row">
-                        <p><b>Info</b></p>
-                        <p>{{info}}</p>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p>
+                            <b>Date Added:</b> {{client[7]}}
+                        </p>
                     </div>
-                    <div class="row">
-                        <button style="width:50px; margin-right:20px" type="button" class="btn btn-primary"><a href="\edit\{{id}}">edit</a></button>
-                        <button style="width:70px" type="button" class="btn btn-danger"><a href="\delete\{{id}}">delete</a></button>
+                    <div class="col">
+                        <p>
+                            <b>Status:</b> {{client[6]}}
+                        </p>
                     </div>
+                </div>
+                <div class="row">
+                    <p><b>Info</b></p>
+                    <p>{{client[8]}}</p>
+                </div>
+                <div class="row">
+                    <button style="width:50px; margin:0 20px 0 10px" type="button" class="btn btn-primary"><a href="\edit\{{client[0]}}">edit</a></button>
+                    <button style="width:70px" type="button" class="btn btn-danger"><a href="\delete\{{client[0]}}">delete</a></button>
                 </div>
             </div>
         </div>

@@ -59,6 +59,5 @@ class CRMDatabase:
     def db_close(self):
          self.con.close()
 
-# if __name__ == "__main__":
-#     DB = CRMDatabase()
-#     DB.db_close()
+if __name__ == "__main__":
+    DB = CRMDatabase()
