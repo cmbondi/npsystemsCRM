@@ -52,8 +52,8 @@ class CRMDatabase:
         )
         self.con.commit()
     
-    def delete_client(self, client_id):
-         self.cur.execute("DELETE FROM clients WHERE id = ?", (client_id, ))
+    def delete_client(self, id):
+         self.cur.execute("DELETE FROM clients WHERE id = ?", (id, ))
          self.con.commit()
 
     def db_close(self):

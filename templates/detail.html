@@ -1,12 +1,12 @@
 {% extends "layout.html" %}
     {% block content %}
         <div class="content-div">
-            <h2>Client Info for ID:001</h2>
+            <h2>Client Info for ID: {{id}}: {{firstname}} {{lastname}}</h2>
             <div class="client_detail">
                 <div class="row">
                     <div class="col">
                         <p>
-                            <b>Client:</b> {{firstname}} {{lastname}}
+                            <b>Client:</b> ID: {{id}}: {{firstname}} {{lastname}}
                         </p>
                     </div>
                     <div class="col">
@@ -43,8 +43,8 @@
                         <p>{{info}}</p>
                     </div>
                     <div class="row">
-                        <button style="width:50px; margin-right:20px" type="button" class="btn btn-primary">Edit</button>
-                        <button style="width:70px" type="button" class="btn btn-danger">Delete</button>
+                        <button style="width:50px; margin-right:20px" type="button" class="btn btn-primary"><a href="\edit\{{id}}">edit</a></button>
+                        <button style="width:70px" type="button" class="btn btn-danger"><a href="\delete\{{id}}">delete</a></button>
                     </div>
                 </div>
             </div>

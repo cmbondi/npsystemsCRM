@@ -24,6 +24,7 @@ def Detail(id):
     date = client[7]
     info = client[8]
     return render_template('detail.html', 
+        id=id,
         firstname=firstname, 
         lastname=lastname,
         busname=busname,
@@ -73,3 +74,10 @@ def Edit(id):
             )
         DB.db_close()
         return redirect('/')
+
+@app.route('/delete/<int:id>')
+def Delete(id):
+    DB = CRMDatabase()
+    DB.delete_client(id)
+    DB.db_close()
+    return redirect('/')
